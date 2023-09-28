@@ -16,4 +16,19 @@ class NavController extends Controller
         return view('series');
     }
 
+    public function shortstories()
+    {
+        return view('short-stories');
+    }
+
+    public function aboutus()
+    {
+        return view('about-us');
+    }
+
+    public function contactus()
+    {
+        return view('contact-us');
+    }
+
 }
