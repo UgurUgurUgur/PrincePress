@@ -10,31 +10,25 @@
     <script src="https://kit.fontawesome.com/f0223fd812.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>PrincePress</h1>
-        <p>Publisher of graphic novels & light novels since 2023</p>
-    </header>
     
-    <!-- navigation -->
+    {{-- navigation --}}
     <div class="container">
         <div class="nav-button">
-            <li><a href="{{ route('home') }}" class="nav-button"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="{{ route('series') }}" class="nav-button"><i class="fa-solid fa-book-bookmark"></i>Series</a></li>
-            <li><a href="{{ route('short-stories') }}"><i class="fas fa-book-open"></i>Short Stories</a></li>
-            <li><a href="{{ route('about-us') }}"><i class="fas fa-info-circle"></i>About Us</a></li>
-            <li><a href="{{ route('contact-us') }}"><i class="fas fa-envelope"></i>Contact Us</a></li>
-            <li class="dropdown">
-                <a href="#" class="nav-button dropdown-toggle" id="themeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-circle-half-stroke"></i> Themes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="themeDropdown">
-                    <a class="dropdown-item" href="#">Default</a>
-                    <a class="dropdown-item" href="#">Dark</a>
-                    <a class="dropdown-item" href="#">Theme 3</a>
-                </div>
-            </li>
+            <a href="{{ route('home') }}" class="nav-button"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="{{ route('series') }}" class="nav-button"><i class="fa-solid fa-book-bookmark"></i>Series</a>
+            <a href="{{ route('short-stories') }}" class="nav-button"><i class="fas fa-book-open"></i>Short Stories</a>
+            <a href="{{ route('about-us') }}" class="nav-button"><i class="fas fa-info-circle"></i>About Us</a>
+            <a href="{{ route('contact-us') }}" class="nav-button"><i class="fas fa-envelope"></i>Contact Us</a>
+            
+            <div class="dropdown" id="themeDropdown">
+                <label for="theme"><i class="fa-solid fa-circle-half-stroke"></i> Theme</label>
+                <select name="theme" id="theme">
+                    <option value="Default">Default</option>
+                    <option value="Dark">Dark</option>
+                </select>
+            </div>
         </div>
-    </div>    
+    </div>   
 
     <main>
         @yield('content')
@@ -45,3 +39,24 @@
     </footer>
 </body>
 </html>
+
+{{-- hide/show dropdown --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var themeDropdown = document.getElementById('themeDropdown');
+        var themeLabel = themeDropdown.querySelector('label');
+        var themeSelect = themeDropdown.querySelector('select');
+        
+        // Initially hide the dropdown
+        themeSelect.style.display = 'none';
+    
+        // Toggle dropdown visibility when clicking the label
+        themeLabel.addEventListener('click', function() {
+            if (themeSelect.style.display === 'none') {
+                themeSelect.style.display = 'block';
+            } else {
+                themeSelect.style.display = 'none';
+            }
+        });
+    });
+</script>
