@@ -1,0 +1,23 @@
+/* Light Theme */
+.light_theme {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Dark Theme */
+.dark_theme {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* High Contrast Theme */
+.high_contrast_theme {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Caramel Theme */
+.caramel_theme {
+    background-color: #ffd700;
+    color: #664422;
+}
