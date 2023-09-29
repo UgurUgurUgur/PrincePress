@@ -1,6 +1,11 @@
+<header>
+    <h1>PrincePress</h1>
+    <p>Publisher of graphic novels & light novels since 2023</p>
+</header>
 @extends('app')
 
 @section('content')
+
 <div class="releases">
     <h2>Releases</h2>
     <!-- releases -->

@@ -23,8 +23,18 @@
             <li><a href="{{ route('short-stories') }}"><i class="fas fa-book-open"></i>Short Stories</a></li>
             <li><a href="{{ route('about-us') }}"><i class="fas fa-info-circle"></i>About Us</a></li>
             <li><a href="{{ route('contact-us') }}"><i class="fas fa-envelope"></i>Contact Us</a></li>
-        </div>    
-    </div>
+            <li class="dropdown">
+                <a href="#" class="nav-button dropdown-toggle" id="themeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-circle-half-stroke"></i> Themes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="themeDropdown">
+                    <a class="dropdown-item" href="#">Default</a>
+                    <a class="dropdown-item" href="#">Dark</a>
+                    <a class="dropdown-item" href="#">Theme 3</a>
+                </div>
+            </li>
+        </div>
+    </div>    
 
     <main>
         @yield('content')
