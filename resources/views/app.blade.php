@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'PrincePress')</title>
     <script src="https://kit.fontawesome.com/f0223fd812.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
     
@@ -25,6 +26,8 @@
                 <select name="theme" id="theme">
                     <option value="Default">Default</option>
                     <option value="Dark">Dark</option>
+                    <option value="Contrast">Contrast</option>
+                    <option value="Caramel">Caramel</option>
                 </select>
             </div>
         </div>
