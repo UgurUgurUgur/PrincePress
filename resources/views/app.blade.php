@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +48,8 @@
         var themeDropdown = document.getElementById('themeDropdown');
         var themeLabel = themeDropdown.querySelector('label');
         var themeSelect = themeDropdown.querySelector('select');
+        var themeSelect = document.getElementById('theme');
+        var body = document.body;
         
         // Initially hide the dropdown
         themeSelect.style.display = 'none';
@@ -59,6 +60,26 @@
                 themeSelect.style.display = 'block';
             } else {
                 themeSelect.style.display = 'none';
+            }
+        });
+
+        // Listen for changes in the theme select
+        themeSelect.addEventListener('change', function() {
+            var selectedTheme = themeSelect.value;
+            
+            // Apply the theme styles based on the selected option
+            if (selectedTheme === 'Default') {
+                body.style.backgroundColor = '#ffffff';
+                body.style.color = '#333333';
+            } else if (selectedTheme === 'Dark') {
+                body.style.backgroundColor = '#333333';
+                body.style.color = '#ffffff';
+            } else if (selectedTheme === 'Contrast') {
+                body.style.backgroundColor = '#000000';
+                body.style.color = '#ffffff';
+            } else if (selectedTheme === 'Caramel') {
+                body.style.backgroundColor = '#ffd700';
+                body.style.color = '#664422';
             }
         });
     });
