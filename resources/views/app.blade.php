@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'PrincePress')</title>
     <script src="https://kit.fontawesome.com/f0223fd812.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
@@ -20,15 +20,11 @@
             <a href="{{ route('about-us') }}" class="nav-button"><i class="fas fa-info-circle"></i>About Us</a>
             <a href="{{ route('contact-us') }}" class="nav-button"><i class="fas fa-envelope"></i>Contact Us</a>
             
-            <div class="dropdown" id="themeDropdown">
-                <label for="theme"><i class="fa-solid fa-circle-half-stroke"></i> Theme</label>
-                <select name="theme" id="theme">
-                    <option value="Default">Default</option>
-                    <option value="Dark">Dark</option>
-                    <option value="Contrast">Contrast</option>
-                    <option value="Caramel">Caramel</option>
-                </select>
-            </div>
+            <!-- Theme switch button -->
+            <label id="themeSwitchLabel" class="nav-button">
+                <input type="checkbox" id="themeSwitch" style="display: none;">
+                <i id="themeIcon" class="lni lni-sun"></i> <!-- Default is the sun icon -->
+            </label>
         </div>
     </div>   
 
@@ -42,44 +38,32 @@
 </body>
 </html>
 
-{{-- hide/show dropdown --}}
+{{-- Script to toggle theme --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var themeDropdown = document.getElementById('themeDropdown');
-        var themeLabel = themeDropdown.querySelector('label');
-        var themeSelect = themeDropdown.querySelector('select');
-        var themeSelect = document.getElementById('theme');
+        var themeSwitch = document.getElementById('themeSwitch');
+        var themeIcon = document.getElementById('themeIcon');
         var body = document.body;
-        
-        // Initially hide the dropdown
-        themeSelect.style.display = 'none';
-    
-        // Toggle dropdown visibility when clicking the label
-        themeLabel.addEventListener('click', function() {
-            if (themeSelect.style.display === 'none') {
-                themeSelect.style.display = 'block';
-            } else {
-                themeSelect.style.display = 'none';
-            }
-        });
+        var isDarkMode = false;
 
-        // Listen for changes in the theme select
-        themeSelect.addEventListener('change', function() {
-            var selectedTheme = themeSelect.value;
-            
-            // Apply the theme styles based on the selected option
-            if (selectedTheme === 'Default') {
+        // Initial theme (light mode)
+        body.style.backgroundColor = '#ffffff';
+        body.style.color = '#333333';
+
+        // Toggle theme when the checkbox is clicked
+        themeSwitch.addEventListener('click', function() {
+            if (isDarkMode) {
+                // Switch to light mode
                 body.style.backgroundColor = '#ffffff';
                 body.style.color = '#333333';
-            } else if (selectedTheme === 'Dark') {
+                themeIcon.className = 'lni lni-sun'; // Set sun icon for light mode
+                isDarkMode = false;
+            } else {
+                // Switch to dark mode
                 body.style.backgroundColor = '#333333';
                 body.style.color = '#ffffff';
-            } else if (selectedTheme === 'Contrast') {
-                body.style.backgroundColor = '#000000';
-                body.style.color = '#ffffff';
-            } else if (selectedTheme === 'Caramel') {
-                body.style.backgroundColor = '#ffd700';
-                body.style.color = '#664422';
+                themeIcon.className = 'fa-solid fa-moon'; // Set moon icon for dark mode
+                isDarkMode = true;
             }
         });
     });
