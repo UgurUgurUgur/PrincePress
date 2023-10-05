@@ -26,14 +26,14 @@
 .video-banner-container {
     position: relative;
     width: 100%;
-    max-height: 500px; /* Set the desired height for your video banner */
+    height: 100vh; /* Use viewport height to cover the entire viewport vertically */
     overflow: hidden;
 }
 
-/* Video Banner */
+/* CSS for Video Banner */
 .video-banner {
     width: 100%;
-    height: auto;
+    height: 100%; /* Set the height to 100% to cover the entire container */
     object-fit: cover;
     z-index: -1;
 }
