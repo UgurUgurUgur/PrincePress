@@ -1,10 +1,19 @@
-<header>
-    <h1>PrincePress</h1>
-    <p>Publisher of graphic novels & light novels since 2023</p>
-</header>
 @extends('app')
 
 @section('content')
+<div class="video-banner-container">
+    <video autoplay loop muted playsinline class="video-banner" width="100%" height="50%">
+        <source src="{{ asset('videos/PrincePressBanner.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+        <header>
+            <h1>PrincePress</h1>
+            <p>Publisher of graphic novels & light novels since 2023</p>
+        </header>
+    </div>
+</div>
+
 
 <div class="releases">
     <h2>Releases</h2>

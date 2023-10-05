@@ -1,23 +1,93 @@
 /* Light Theme */
-body.light_theme {
+.light_theme {
     background-color: #ffffff;
     color: #333333;
 }
 
 /* Dark Theme */
-body.dark_theme {
+.dark_theme {
     background-color: #333333;
     color: #ffffff;
 }
 
 /* High Contrast Theme */
-body.high_contrast_theme {
+.high_contrast_theme {
     background-color: #000000;
     color: #ffffff;
 }
 
 /* Caramel Theme */
-body.caramel_theme {
+.caramel_theme {
     background-color: #ac9125;
     color: #473018;
+}
+
+/* Video Banner Container */
+.video-banner-container {
+    position: relative;
+    width: 100%;
+    max-height: 500px; /* Set the desired height for your video banner */
+    overflow: hidden;
+}
+
+/* Video Banner */
+.video-banner {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
+    color: #fff; /* Text color for the header */
+    z-index: 1;
+}
+
+/* Header Text Styles */
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+/* CSS styles to crop the video */
+.video-banner-container {
+    position: relative;
+    width: 100%;
+    max-height: 500px; /* Set the desired height for your cropped video */
+    overflow: hidden;
+}
+
+.video-banner {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.video-banner video {
+    padding-top: 10%; /* Adjust to crop from the top */
+    padding-bottom: 10%; /* Adjust to crop from the bottom */
+    width: 100%;
+    height: auto;
 }
