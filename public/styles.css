@@ -22,6 +22,15 @@
     color: #473018;
 }
 
+.overlay-image {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    border: 2px solid white; /* Add an outline to the left side */
+    border-radius: 5px;
+    z-index: 3; /* Set a higher z-index to place images above the video */
+}
+
 /* Video Banner Container */
 .video-banner-container {
     position: relative;
@@ -49,8 +58,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background */
-    color: #fff; /* Text color for the header */
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    color: #fff; /* Text color header */
     z-index: 1;
 }
 
@@ -67,7 +76,6 @@ p {
     font-size: 1.5rem;
 }
 
-/* CSS styles to crop the video */
 .video-banner-container {
     position: relative;
     width: 100%;
@@ -89,5 +97,41 @@ p {
     padding-top: 10%; /* Adjust to crop from the top */
     padding-bottom: 10%; /* Adjust to crop from the bottom */
     width: 100%;
+    height: auto;
+}
+
+.overlay-menu {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for the menu */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 2; /* Ensure it's above the video */
+}
+
+.overlay-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.overlay-menu li {
+    display: inline;
+    margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.overlay-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.prince {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
+
+.press {
+    width: 100px; /* Adjust the width as needed */
     height: auto;
 }
