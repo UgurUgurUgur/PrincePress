@@ -13,21 +13,23 @@
     
     {{-- navigation --}}
     <div class="container">
-        <div class="nav-button">
-            <a href="{{ route('home') }}" class="nav-button"><i class="fa-solid fa-house"></i>Home</a>
-            <a href="{{ route('series') }}" class="nav-button"><i class="fa-solid fa-book-bookmark"></i>Series</a>
-            <a href="{{ route('short-stories') }}" class="nav-button"><i class="fas fa-book-open"></i>Short Stories</a>
-            <a href="{{ route('about-us') }}" class="nav-button"><i class="fas fa-info-circle"></i>About Us</a>
-            <a href="{{ route('contact-us') }}" class="nav-button"><i class="fas fa-envelope"></i>Contact Us</a>
-            
-            <!-- Theme switch button -->
-            <label id="themeSwitchLabel" class="nav-button">
-                <input type="checkbox" id="themeSwitch" style="display: none;">
-                <i id="themeIcon" class="lni lni-sun"></i> <!-- Default is the sun icon -->
-            </label>
+        <div id="navbar">
+            <a href="{{ route('home') }}" id="logo">
+                <img src="{{ asset('images/PrincePressLogoFullWeb.png') }}" alt="PrincePress Logo">
+            </a>
+            <div id="navbar-right">
+                <p><a href="{{ route('series') }}">Series</a></p>
+                <p><a href="{{ route('short-stories') }}">Short Stories</a></p>
+                <p><a href="{{ route('about-us') }}">About Us</a></p>
+                <p><a href="{{ route('contact-us') }}">Contact Us</a></p>
+            </div>
         </div>
-    </div>   
-
+        
+        <!-- Theme switch button -->
+        <label id="themeSwitchLabel" class="nav-button">
+            <input type="checkbox" id="themeSwitch" style="display: none;">
+            <i id="themeIcon" class="lni lni-sun"></i> <!-- Default is the sun icon -->
+        </label>
     <main>
         @yield('content')
     </main>
@@ -66,5 +68,20 @@
                 isDarkMode = true;
             }
         });
-    });
+
+        // When the user scrolls down px from the top of the document, resize the navbar's padding and the logo's font size
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+                document.getElementById("navbar").style.padding = "30px 10px";
+                document.getElementById("logo").style.fontSize = "25px";
+            } else {
+                document.getElementById("navbar").style.padding = "80px 10px";
+                document.getElementById("logo").style.fontSize = "35px";
+            }
+        }
+    })
 </script>
